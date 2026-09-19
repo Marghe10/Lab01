@@ -25,7 +25,7 @@ fisso, e un numero di tentativi a disposizione che diminuisce con il crescere de
 
 Il codice segreto è un numero intero compreso tra 1 e 50, generato casualmente ad ogni livello.
 
-**NB**: Per generare un numero randomico basta importare il modulo [`random`](https://docs.python.org/3.11/library/random.html) 
+**NB**: Per generare un numero randomico basta importare il modulo [`random`](https://docs.python.org/3.14/library/random.html) 
 e usare le funzioni che mette a disposizione. 
 
 ### Simboli di avanzamento
