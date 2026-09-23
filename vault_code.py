@@ -11,15 +11,23 @@ MAX_LIVELLO = 3
 def dai_indizio(tentativo, codice):
     """Restituisce un indizio confrontando il tentativo con il codice segreto"""
     # TODO
+    if tentativo < CODICE_MIN or tentativo > CODICE_MAX:
+        print("tentativo non valido")
+    elif CODICE_MIN < tentativo < codice:
+        print("più alto")
+    elif codice < tentativo < CODICE_MAX:
+        print("più basso")
+    else:
+        print("livello superato")
 
 
-def stampa_tentativi(tentativi_disponibili, usati):
+def stampa_tentativi(tentativi_rimanenti, usati):
     """Stampa la riga dei tentativi: O = disponibile, X = già usato"""
     # TODO
     print("tentativi disponibili:")
     for y in range(0,usati):
         print("X", end=" ")
-    for x in range(0,tentativi_disponibili):
+    for x in range(0, tentativi_rimanenti):
         print("O",end=" ")
     print()
 
@@ -40,15 +48,21 @@ def gestisci_livello(livello):
 
     codice = random.randint(CODICE_MIN, CODICE_MAX)
     usati = 0
-    tentativi_rimanenti=tentativi_tot_disponibili
-
     # TODO
+
+
+    tentativi_rimanenti = tentativi_tot_disponibili
     stampa_tentativi(tentativi_rimanenti,usati)
-    in_gioco=input("inserire il numero da giocare")
-    if in_gioco == codice:
+    tentativo=int(input("inserire il numero da giocare"))
+    if tentativo == codice:
         return True
     else:
-        indizio=dai_indizio(tentativo, codice)
+        dai_indizio(tentativo, codice)
+        tentativi_rimanenti = tentativi_rimanenti - 1
+        usati = usati + 1
+        stampa_tentativi(tentativi_rimanenti, usati)
+
+
 
 
 def main():
